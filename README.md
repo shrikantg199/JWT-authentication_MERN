@@ -1,5 +1,11 @@
 This project includes login and signup pages using React for the frontend and Express for the backend with JWT authentication. This is a basic template, and you might need to customize it based on the specifics of your project.
+<h1>Login Page</h1>
 
+![Login](Login.png)
+
+<h1>SignUp Page</h1>
+
+![sign](signup.png)
 ```markdown
 # Project Title
 
@@ -8,28 +14,29 @@ A simple web application with login and signup functionality using React and Exp
 ## Prerequisites
 
 - Node.js installed on your machine
-- npm or yarn package manager
 
 ## Getting Started
 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/your-project.git
+   git clone https://github.com/shrikantg199/JWT-authentication_MERN
+.git
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd your-project
+   cd JWT-authentication_MERN
+
    ```
 
 ### Frontend (React)
 
-3. Navigate to the `client` directory:
+3. Navigate to the `frontend` directory:
 
    ```bash
-   cd client
+   cd frontend
    ```
 
 4. Install dependencies:
@@ -38,20 +45,20 @@ A simple web application with login and signup functionality using React and Exp
    npm install
    ```
 
-5. Run the React app:
+5. Run the React+vite app:
 
    ```bash
-   npm start
+   npm run dev
    ```
 
-   The app will be accessible at http://localhost:3000.
+   The app will be accessible at http://localhost:5173.
 
 ### Backend (Express)
 
-6. Navigate to the `server` directory:
+6. Navigate to the `backend` directory:
 
    ```bash
-   cd server
+   cd backend
    ```
 
 7. Install dependencies:
@@ -79,8 +86,8 @@ A simple web application with login and signup functionality using React and Exp
 
 ## Project Structure
 
-- `client`: Frontend React application
-- `server`: Backend Express application
+- `Frontend`: Frontend React+vite application
+- `Backend`: Backend Express application
 
 ## Technologies Used
 
