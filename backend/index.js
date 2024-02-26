@@ -8,6 +8,7 @@ const app = express();
 const port = 3000;
 const db = require("./db/dbConnection");
 const User = require("./db/userSchema");
+const SECRET_KEY = "secretkey";
 //mongodb connection
 db();
 //middlware
@@ -38,6 +39,29 @@ app.get("/register", async (req, res) => {
   }
 });
 
+app.post("/login", async (req, res) => {
+  try {
+    const { username, password } = req.body;
+    const user = await User.findOne({ username });
+    if (!user) {
+      return res.status(401).json({ error: "Invalid Credentials" });
+    }
+
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+    if (!isPasswordValid) {
+      return res.status(401).json({ error: "Invalid Credentials" });
+    }
+    console.log("isPasswordValid:", isPasswordValid);
+    const token = jwt.sign({ userId: user._id }, SECRET_KEY, {
+      expiresIn: "1hr",
+    });
+    console.log(token);
+    res.json({ message: "Login successful", token });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Error in login" });
+  }
+});
 app.listen(port, () => {
   console.log("listening.....");
 });
