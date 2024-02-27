@@ -1,5 +1,4 @@
 const express = require("express");
-
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const cors = require("cors");
@@ -55,7 +54,7 @@ app.post("/login", async (req, res) => {
     const token = jwt.sign({ userId: user._id }, SECRET_KEY, {
       expiresIn: "1hr",
     });
-    console.log(token);
+
     res.json({ message: "Login successful", token });
   } catch (error) {
     console.error(error);
